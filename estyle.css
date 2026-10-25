@@ -1,0 +1,162 @@
+/* Reseteo y Configuración Global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Fondo adaptable y sin repetición */
+body {
+  background-image: url('../img/fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* Evita que la imagen se multiplique */
+  background-attachment: fixed;
+  background-color: #0f172a;
+  color: #f8fafc; /* Texto general claro para que resalte */
+  min-height: 100vh;
+}
+
+/* Encabezado y Navegación */
+header {
+  background-color: rgba(15, 23, 42, 0.95); /* Fondo oscuro sólido para el menú */
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .logo h1 {
+  font-size: 22px;
+  color: #38bdf8;
+}
+
+/* Botones de navegación claros y visibles */
+header nav a {
+  background-color: #2563eb;
+  color: #ffffff !important; /* Fuerza a que el texto del link sea blanco */
+  text-decoration: none;
+  padding: 8px 12px;
+  margin-left: 5px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+}
+
+header nav a:hover {
+  background-color: #1d4ed8;
+}
+
+/* Contenido Principal */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* Tarjetas de Productos */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.tarjeta-producto {
+  background: rgba(255, 255, 255, 0.95); /* Fondo blanco para las tarjetas */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #333; /* Texto oscuro dentro de la tarjeta blanca */
+}
+
+.tarjeta-producto img {
+  max-width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.tarjeta-producto h3 {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.tarjeta-producto .precio {
+  font-weight: bold;
+  color: #16a34a;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Formularios */
+.contenedor-formulario {
+  max-width: 450px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: #333;
+}
+
+.contenedor-formulario h2 {
+  color: #1e293b;
+  text-shadow: none;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-binary label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #475569;
+}
+
+.form-binary input, 
+.form-binary select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #f8fafc;
+  color: #333;
+}
+
+/* Botones */
+.btn-principal, 
+.btn-comprar, 
+.btn-carrito {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-carrito {
+  background-color: #0d9488;
+}

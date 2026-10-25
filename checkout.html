@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BinaryShop - Pasarela de Pago</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Encabezado y Navegación -->
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="img/logo.png" alt="BinaryShop Logo" style="height: 40px; width: auto; border-radius: 4px;">
+      <h1>BinaryShop</h1>
+    </div>
+    <nav>
+      <a href="index.html">Catálogo</a>
+      <a href="index.html">Volver a la Tienda</a>
+    </nav>
+  </header>
+
+  <!-- Contenedor del Formulario de Compra -->
+  <main>
+    <div class="contenedor-formulario" style="max-width: 550px;">
+      <h2>Procesamiento de Compra</h2>
+      <p style="margin-bottom: 15px; font-size: 14px; color: #475569;">Completa los datos de envío y pago para procesar tu transacción de forma segura en BinaryShop.</p>
+      
+      <form id="form-checkout" class="form-binary">
+        
+        <h3>Datos de Envío</h3>
+        <label for="nombre-envio">Nombre Completo:</label>
+        <input type="text" id="nombre-envio" required placeholder="Ej: Falco Pérez">
+
+        <label for="direccion-envio">Dirección de Destino:</label>
+        <input type="text" id="direccion-envio" required placeholder="Calle, número y ciudad">
+
+        <h3>Datos Bancarios (Pasarela de Pago)</h3>
+        <label for="num-tarjeta">Número de Tarjeta:</label>
+        <input type="text" id="num-tarjeta" required placeholder="0000 0000 0000 0000">
+
+        <div style="display: flex; gap: 10px;">
+          <div style="flex: 1;">
+            <label for="exp-tarjeta">Expiración:</label>
+            <input type="text" id="exp-tarjeta" required placeholder="MM/AA">
+          </div>
+          <div style="flex: 1;">
+            <label for="cvv-tarjeta">CVV:</label>
+            <input type="password" id="cvv-tarjeta" required maxlength="4" placeholder="123">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-principal" style="width: 100%; margin-top: 20px;">Confirmar y Pagar</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Script para validar la compra -->
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById("form-checkout").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const usuarioGuardado = localStorage.getItem("usuarioActivo");
+      
+      if (!usuarioGuardado) {
+        alert("Debes iniciar sesión para procesar una compra.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const usuario = JSON.parse(usuarioGuardado);
+
+      if (usuario.rol !== "comprador") {
+        alert("Acceso restringido: Solo los usuarios con rol Comprador pueden realizar transacciones de pago.");
+        return;
+      }
+
+      // Simulación de éxito de pago
+      alert(`¡Compra procesada con éxito, ${usuario.nickname}! Tu pago ha sido validado correctamente.`);
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
